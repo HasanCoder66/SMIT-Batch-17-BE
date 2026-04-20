@@ -1,7 +1,7 @@
 let parent = document.getElementById("parent")
 console.log(parent)
 
-async function getData (limit = 3, skip = 2){
+async function getData (limit = 5, skip = 0){
 
     let apiRes = await fetch(`http://localhost:8500/api/user?limit=${limit}&skip=${skip}&sort=-age`)
     let result = await apiRes.json()
@@ -27,5 +27,5 @@ function cardHTMLUpdate ({data}){
 </div>`
     )
      
-     parent.innerHTMl = returnHTML.join(" ")
+     parent.innerHTML = returnHTML.join(" ")
 }

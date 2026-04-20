@@ -24,7 +24,7 @@ export const getUser = async (req, res) => {
 
 // console.log("req querry ==>",req.query)
 
-        const user = await User.find().limit(limit).skip(skip).sort()
+        const user = await User.find().limit(limit).skip(skip).sort(sort)
 
 
         res.status(200).json({
