@@ -1,4 +1,5 @@
 import { User } from "../models/userSchema.js"
+import jwt from "jsonwebtoken"
 
 export const getUser = async (req, res) => {
     try {
@@ -39,5 +40,28 @@ export const getUser = async (req, res) => {
             message : error.message,
             
         })
+    }
+}
+
+export const updateUser = async (req, res, next) => {
+    try {
+        const updateDetails = req.body ;
+        const token = req.headers.authorization
+
+        console.log(token)
+        let decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY)
+
+        if(!token) throw new Error("No Token Provider")
+
+
+       let updatedUser =   await User.findByIdAndUpdate(decodedToken.id, updateDetails)
+
+            res.status(200).json({
+                status : true,
+                message:"updated user successfully",
+                data : updatedUser
+            })
+    } catch (error) {
+        next(error)
     }
 }
