@@ -15,7 +15,15 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     age : Number,
-    about : String
+    about : String,
+    otp: String,
+    otpExpiry : Date,
+    
+    isVerified: {
+        type : Boolean,
+        default:false
+    }
+    
 
 
 })
