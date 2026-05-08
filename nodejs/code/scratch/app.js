@@ -6,6 +6,7 @@ import authRoutes from "./src/routes/authRoutes.js"
 import { connectDb } from "./src/db/db.js"
 import userRoutes from "./src/routes/userRoute.js"
 import { errorMiddleware } from "./src/middleware/errorMiddleware.js"
+import jobRoute from "./src/routes/jobRoutes.js"
 
 
 const app = express()
@@ -33,6 +34,7 @@ app.get("/",(req, res) => {
 
 app.use("/api/auth", authRoutes)
 app.use("/api/user", userRoutes)
+app.use("/api/job", jobRoute)
 // app.use("/api/user")
 
 

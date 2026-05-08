@@ -44,11 +44,12 @@ export const login = async (req, res, next) => {
     bcrypt.compare(password, myUser.password, function (err, result) {
       try {
         if (result) {
+          
           const token = jwt.sign(
             { email: myUser.email, id: myUser._id }, // payload
             process.env.JWT_SECRET_KEY, // secret key
-            // {expiresIn:"7d"}                                      // token expiry
-            { expiresIn: 10 * 60 }, // token expiry
+            {expiresIn:"1h"}                                      // token expiry
+            // { expiresIn: 10 * 60 }, // token expiry
           );
           res.cookie("token", token)
           res.status(200).json({
