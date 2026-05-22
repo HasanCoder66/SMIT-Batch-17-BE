@@ -8,6 +8,20 @@
 <body>
     <h1>Socket.IO Chat App</h1>
 
+    <h2 id="onlineUsers">Online Users:</h2>
+    <input type="text" id="message-input">
+
+    <button id="send-btn">
+        Send
+    </button>
+
+    <div>
+        <input type="text" id="username" placeholder="Enter your username">
+        <button id="join">Join</button>
+    </div>
+
+    <!-- <ul id="messages"></ul> -->
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>
 </body>
