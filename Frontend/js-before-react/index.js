@@ -1,3 +1,73 @@
+// desturcturing
+
+// data types  
+// primitives 
+// reference 
+
+// object | Array 
+
+// let user = {
+//     name : "azaan",
+//     email :"azaan@gmail.com",
+//     password : "13455678",
+//     age : 12
+// }
+
+
+// let user2 = {
+//     ...user,
+//     isAdmin : true,
+//     email : "qadir@gmail.com",
+//     // address:{}
+// }
+
+// console.log(user2.address?.street);
+
+
+
+// // {}
+
+// const {name, email, ...others} = user
+
+// console.log(others);
+
+
+// // []
+// const studentsArr = ["ali", "ali hasan", "abdul qadir", "sarim"]
+
+// const [stu1,stu2, ...others] = studentsArr
+
+// console.log(others);
+// console.log(stu2);
+
+// let stu1 = studentsArr[0]
+// let stu2 = studentsArr[1]
+
+
+
+
+
+// console.log(user.name, user.password);
+
+
+
+// for loop
+
+// start end change 
+
+// variable initialization | condition | increment or decrement
+
+
+// let i = 0 ;
+// i < arr.length
+// i++
+
+
+// for (let i = 0; i < 4; i++){
+//     console.log("mera i", i);
+// }
+
+
 // let const var 
 
 
