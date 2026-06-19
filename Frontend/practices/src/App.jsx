@@ -4,6 +4,8 @@ import Card from './components/Card'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
+import Profile from './pages/Profile'
+import Signup from './pages/Signup'
 const App = () => {
   return (
 
@@ -11,6 +13,8 @@ const App = () => {
 
 <Route path='/home' element={<Home />}/>
 <Route path='/about' element={<About />}/>
+<Route path='/profile/:username' element={<Profile />}/>
+<Route path='/signup' element={<Signup />}/>
 
   </Routes>
 
