@@ -12,7 +12,7 @@ const App = () => {
 //  const [count,setCount] = useState(0)
 
   const getData = async () => {
- let apiResponse =  await fetch("https://dummyjson.com/users");
+ let apiResponse =  await fetch("https://auth-be-five.vercel.app/api/user");
     let result = await apiResponse.json()
 
     // console.log(result.users);

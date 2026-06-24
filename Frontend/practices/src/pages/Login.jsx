@@ -5,38 +5,34 @@ import { Box, Paper, Typography } from '@mui/material'
 import axios from 'axios'
 // import '../index.css'
 
-const Signup = () => {
+const Login = () => {
 
   const [form, setForm] = useState({
     email: "",
     password: "",
-    userName: "",
-    age: 0
   })
-  const [loading, setLoading] = useState(false)
+//   const [loading, setLoading] = useState(false)
 
 
-  console.log("form", typeof +form.age);
 
   const getInputValues = (e, field) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }))
   }
 
 
-  const signupHandler = async () => {
-    console.log("signup handler is working...", form);
+  const loginHandler = async () => {
+    console.log("login handler is working...", form);
 
-    let apiRes = await axios.post(`https://auth-be-five.vercel.app/api/auth/signup`, form)
+    let apiRes = await axios.post(`https://auth-be-five.vercel.app/api/auth/login`, form)
 
-    setLoading(true)
-    const {data, status, message} = apiRes.data;
-    console.log("api response data -->", status );
+    // setLoading(true)
+    const token = apiRes.data.token;
+    localStorage.setItem("token", JSON.stringify(token))
  
-    console.log("status -->",status);
     
-    if(status){
-      setLoading(false)
-    }
+    // if(status){
+    //   setLoading(false)
+    // }
   }
 
 
@@ -57,24 +53,19 @@ const Signup = () => {
       <Typography sx={{
         fontSize: "32px",
         fontWeight: "bold"
-      }}>Signup Form </Typography>
+      }}>Login Form </Typography>
 
       <Input field="email" type={"email"} label={"Enter your email"} onChangeHandler={getInputValues} />
 
       <Input field="password" type={"password"} label={"Enter your password"} onChangeHandler={getInputValues} />
 
-      <Input field="userName" type={"text"
-      } label={"Enter your username"} onChangeHandler={getInputValues} />
-
-      <Input field="age" type={"number"} label={"Enter your age"} onChangeHandler={getInputValues} />
-
 
       <Box className="mt-5">
-        <Button text={loading} signupHandler={signupHandler} />
+        <Button text={"login"} handler={loginHandler} />
       </Box>
 
     </Box>
   )
 }
 
-export default Signup
+export default Login

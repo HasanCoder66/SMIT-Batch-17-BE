@@ -6,17 +6,30 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import Signup from './pages/Signup'
+import Dashboard from './pages/Dashboard'
+import NotFound from './pages/NotFound'
+import ProtectedRouting from './components/ProtectedRouting'
+import Login from './pages/Login'
+
 const App = () => {
   return (
 
     <Routes>
 
-<Route path='/home' element={<Home />}/>
-<Route path='/about' element={<About />}/>
-<Route path='/profile/:username' element={<Profile />}/>
-<Route path='/signup' element={<Signup />}/>
+      <Route path='/home' element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/profile/:username' element={<Profile />} />
+      <Route path='/signup' element={<Signup />} />
+      <Route path='/login' element={<Login />} />
+      {/* <Route path='/dashboard' element={<Dashboard />} /> */}
 
-  </Routes>
+
+      <Route path='/dashboard' element={<ProtectedRouting> <Dashboard /> </ProtectedRouting>} />
+
+
+      <Route path='*' element={<NotFound />} />
+
+    </Routes>
 
     // <div>
     //  <Navbar />
