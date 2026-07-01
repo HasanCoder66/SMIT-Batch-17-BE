@@ -5,6 +5,7 @@ import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import ProtectedRouting from './component/ProtectedRouting'
 import PublicRoute from './component/PublicRoute'
+import Profile from './pages/Profile'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/login"  element={<PublicRoute>
         <Login />
       </PublicRoute>} />
+      <Route path='/profile/:userName' element={<Profile />}/>
       <Route path="/signup"  element={<Signup />} />
       <Route path="/"  element={<ProtectedRouting>
         <Dashboard />
