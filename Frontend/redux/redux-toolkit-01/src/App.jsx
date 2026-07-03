@@ -14,7 +14,7 @@ const App = () => {
       <Route path="/login"  element={<PublicRoute>
         <Login />
       </PublicRoute>} />
-      <Route path='/profile/:userName' element={<Profile />}/>
+      <Route path='/profile/:id' element={<Profile />}/>
       <Route path="/signup"  element={<Signup />} />
       <Route path="/"  element={<ProtectedRouting>
         <Dashboard />

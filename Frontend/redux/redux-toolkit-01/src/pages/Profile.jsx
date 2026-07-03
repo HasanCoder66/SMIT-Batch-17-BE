@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { getSingleUser } from '../redux/features/userSlice'
 
 const Profile = () => {
+
+  const {error, message,user, loading} = useSelector((state) => state.user)
+
+
+  const dispatch = useDispatch()
+  const params = useParams()
+
+  // console.log(params.id);
+  
+  
+  useEffect(() => {
+    dispatch(getSingleUser(params.id))
+  },[])
+  
+  if(loading) return  <h1>Loading....</h1>
   return (
     <div>
       <h1>User Profile <nav aria-label="Page navigation">
@@ -21,6 +39,14 @@ const Profile = () => {
           </li>
         </ul>
       </nav></h1>
+
+
+      <div>
+        <p>{user?.userName}</p>
+        <p>{user?.email}</p>
+        <p>{user?.age}</p>
+        <p>{user?._id}</p>
+      </div>
     </div>
   )
 }
